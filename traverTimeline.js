@@ -44,7 +44,7 @@ insertNode(node13, node14);
 
 console.log(node1)
 
-function travelDeep(root) {
+function travelDeep(root) { // 深度优先遍历
     queue = new Array();
     queue.push(root); // stack
     while(queue.length != 0){
@@ -56,7 +56,7 @@ function travelDeep(root) {
         }
     }
 }
-function travelBread(root) {
+function travelBread(root) { // 广度优先搜索遍历
     queue = new Array();
     queue.push(root); // stack
     while(queue.length != 0){

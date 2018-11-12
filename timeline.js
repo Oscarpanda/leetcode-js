@@ -1,9 +1,9 @@
 function Node(data) {
-    this.data = data;
+    this.data = data; // 节点的内容
     this.children = new Array();
-    this.value = 1;
-    this.index = -1;
-    this.pre_index = -1;
+    this.value = 1; // 节点的权重
+    this.index = -1; // 节点的位置
+    this.pre_index = -1; // 上一个节点的位置
 }
 function insertNode(parent, child){
     parent.children.push(child);
@@ -48,15 +48,16 @@ function initIndexcopy(root) {
     in_queue_flags = new Set();
     queue.push(root);
     while(queue.length != 0){
-        var cur_node = queue.shift();
-        var next_value = cur_node.index + cur_node.value;
+        var cur_node = queue.pop();
+        // action
+        var next_value = cur_node.index + cur_node.value; // 计算下一个节点的位置
         for(var i=0; i < cur_node.children.length; i++){
             var child = cur_node.children[i];
             if(child.value <= next_value){
             child.index = next_value;
             child.pre_index = cur_node.index;
             var child_next_value = child.index + child.value;
-            for(var j=0; j < child.children.length; j++){
+            for(var j=0; j < child.children.length; j++){ // 需要更新下下一个节点的位置
                 var child_child = child.children[j];
                 if(child_child.value <= child_next_value){
                     child_child.index = child_next_value;
@@ -65,12 +66,13 @@ function initIndexcopy(root) {
             }
             }
         }
-        if(in_queue_flags.has(cur_node)) continue;
+        // action
+        if(in_queue_flags.has(cur_node)) continue; // 检测是否遍历过
         in_queue_flags.add(cur_node);
         console.log(cur_node.data);
         for(var i=0; i < cur_node.children.length; i++){
             var child = cur_node.children[i];
-            queue.push(child);
+            queue.push(child);// 将节点导入栈或者队列
         }
     }
 }
@@ -98,7 +100,7 @@ function initIndex(root) {
         }
     }
 }
-function travelBreadNoReaptWay2(root, callback) {
+function travelBreadNoReaptWay2(root, callback) { // 输出每个节点的信息
     queue = new Array();
     queue.push(root); // stack
     const history = new Set();
