@@ -53,6 +53,85 @@
 // });
 
 // case 4
-Promise.resolve(3).then((data) => {
-  console.log(data)
-})
+// Promise.resolve(3).then((data) => {
+//   console.log(data)
+// })
+// case5 
+// Promise.reject(Error(344)).catch((data) => {
+//   console.log(data)
+// })
+// case 6 
+// console.log("out promise");
+// let promise = new Promise ((resolve) => {
+//   console.log('inner promise');
+//   resolve(4);
+// })
+// promise.then((data) => {
+//   console.log(data);
+// })
+
+
+
+
+// case 7 
+// function taskA() {
+//   return new Promise((res,rej) => {
+//   // setTimeout(() => {
+//     throw Error(3) 
+//     console.log("Task A");
+//     // rej(3)
+    
+
+//   // },1000)
+
+//   })
+// }
+// function taskB() {
+//   console.log("Task B");
+// }
+// function onRejected(error) {
+//   console.log("Catch Error: A or B, error");
+// }
+// function finalTask() {
+//   console.log("Final Task");
+// }
+
+// promise = Promise.resolve();
+// promise
+//   .then(taskA)
+//   .then(taskB)
+//   .catch(onRejected)
+//   .then(finalTask);
+
+// case 8
+function taskA(data) {
+  // return new Promise((res,rej) => {
+  // setTimeout(() => {
+    // throw Error(data) 
+    console.log(data);
+    return data += 1;
+    // rej(3)
+    
+
+  // },1000)
+
+  // })
+}
+function taskB(data) {
+    console.log(data);
+    return data ++;
+}
+function onRejected(error) {
+  console.log("Catch Error: A or B, error");
+}
+function finalTask(data) {
+    console.log(data);
+  console.log("Final Task");
+}
+
+promise = Promise.resolve(1);
+promise
+  .then(taskA)
+  .then(taskB)
+  .catch(onRejected)
+  .then(finalTask);
