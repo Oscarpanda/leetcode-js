@@ -103,35 +103,96 @@
 //   .catch(onRejected)
 //   .then(finalTask);
 
-// case 8
-function taskA(data) {
-  // return new Promise((res,rej) => {
-  // setTimeout(() => {
-    // throw Error(data) 
-    console.log(data);
-    return data += 1;
-    // rej(3)
+// // case 8
+// function taskA(data) {
+//   // return new Promise((res,rej) => {
+//   // setTimeout(() => {
+//     // throw Error(data) 
+//     console.log(data);
+//     return data += 1;
+//     // rej(3)
     
 
-  // },1000)
+//   // },1000)
 
-  // })
-}
-function taskB(data) {
-    console.log(data);
-    return data ++;
-}
-function onRejected(error) {
-  console.log("Catch Error: A or B, error");
-}
-function finalTask(data) {
-    console.log(data);
-  console.log("Final Task");
-}
+//   // })
+// }
+// function taskB(data) {
+//     console.log(data);
+//     return data ++;
+// }
+// function onRejected(error) {
+//   console.log("Catch Error: A or B, error");
+// }
+// function finalTask(data) {
+//     console.log(data);
+//   console.log("Final Task");
+// }
 
-promise = Promise.resolve(1);
-promise
-  .then(taskA)
-  .then(taskB)
-  .catch(onRejected)
-  .then(finalTask);
+// promise = Promise.resolve(1);
+// promise
+//   .then(taskA)
+//   .then(taskB)
+//   .catch(onRejected)
+//   .then(finalTask);
+
+// // case 9
+// aPromise = new Promise(function (resolve) {
+//   resolve(3);
+// });
+// let a = aPromise.then(function (value) {
+//   return value * 2;
+// });
+// let b = aPromise.then(function (value) {
+//   return value * 2;
+// });
+// let c = aPromise.then(function (value) {
+//   console.log(3 + value); // => 100
+// })
+// console.log(a==b)
+
+// case 10
+// function timerPromisefy(delay) {
+//     return new Promise(function (resolve) {
+//         setTimeout(function () {
+//             resolve(delay);
+//         }, delay);
+//     });
+// }
+//  startDate = Date.now();
+// // 所有promise变为resolve后程序退出
+// Promise.race([
+//     timerPromisefy(1),
+//     timerPromisefy(32),
+//     timerPromisefy(64),
+//     timerPromisefy(128)
+// ]).then(function (values) {
+//     console.log(Date.now() - startDate );
+//     // 約128ms
+//     console.log(values);    // [1,32,64,128]
+// });
+
+// case 11 
+// winnerPromise = new Promise(function (resolve) {
+//   setTimeout(function () {
+//       console.log("this is winner");
+//       resolve("this is winner");
+//   },1);
+// });
+// loserPromise = new Promise(function (resolve) {
+//   setTimeout(function () {
+//       console.log("this is loser");
+//       resolve("this is loser");
+//   }, 2);
+// });
+// // 第一个promise变为resolve后程序停止
+// Promise.race([winnerPromise, loserPromise]).then(function (value) {
+// console.log(value);    // => 'this is winner'
+// });
+// case 12
+ promise =new  Promise(function(resolve, reject){
+    throw  Error("message");
+});
+promise.catch(function(error){
+    console.error(error);// => "message"
+});
