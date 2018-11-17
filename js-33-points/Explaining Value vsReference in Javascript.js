@@ -14,3 +14,9 @@ var personObj1 = {
 var personObj2 = changeAgeAndReference(personObj1);
 console.log(JSON.stringify(personObj1)); // -> ?
 console.log(JSON.stringify(personObj2)); // -> ?
+
+a = [1,2];
+a.forEach(element => {
+  element = 1;
+});
+console.log(a)
