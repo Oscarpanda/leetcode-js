@@ -1,0 +1,1 @@
+enum Days {a,b,c,d,e,f,g};
