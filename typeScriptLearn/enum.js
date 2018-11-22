@@ -9,3 +9,4 @@ var Days;
     Days[Days["g"] = 6] = "g";
 })(Days || (Days = {}));
 ;
+var directions = [Directions.Up, Directions.Down, Directions.Left, Directions.Right];
