@@ -1,4 +1,4 @@
-function twoSum(arr, target) {
+function twoSum3(arr, target) {
     let finalresult = [];
     for (let i = 1; i < arr.length; i++) {
         let num1 = arr[i];
@@ -26,6 +26,20 @@ var twoSum1 = function(nums, target) {
      }
    }
  };
-let a = twoSum1([1,2,4],5) 
+var twoSum = function(nums, target) {
+    const record = new Map();
+    for (let i = 0;i< nums.length;i++) {
+        let temp = target - nums[i];
+         if (record.has(temp)) {
+            if (record.get(temp) !== i) {
+                return [record.get(temp), i]
+            }
+            
+        }
+        record.set(nums[i], i)
+    }
+   
+};
+let a = twoSum([3,3],6) 
 
 console.log(a)
