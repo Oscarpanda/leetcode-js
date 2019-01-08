@@ -56,9 +56,13 @@ var networkDelayTime = function(times, N, K) {
   }
   console.log(Map);
   let final = Map.sort((a,b) => {
-    return b - a
+    return b.val - a.val
   })
-  return final[0].val
+  if (final[0].val === 9999999) {
+    return -1
+  } else {
+    return final[0].val
+  }
 
 
 };
