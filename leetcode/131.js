@@ -30,4 +30,3 @@ var partition = function(s) {
   digui(0,[])
   console.log(result)
 };
-partition ("abbb")
