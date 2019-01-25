@@ -28,7 +28,6 @@ var combinationSum = function(candidates, target) {
     return true
 }
   let digui = (value, arr) => {
-    console.log(value)
     if (value === 0) {
       return true
     }
@@ -57,6 +56,7 @@ var combinationSum = function(candidates, target) {
 
   }
   digui(target, [])
+  return result;
   console.log(result);
 };
 combinationSum([2,3,5], 8)
