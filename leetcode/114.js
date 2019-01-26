@@ -10,21 +10,26 @@
  root.left.right = new TreeNode(4)
  root.left.left = new TreeNode(3)
  var flatten = function(root) {
-  let result = []
-  let digui = (root) =>  {
-      if (root === null) {
-          return null;
-      }
-      let right = root.right;
-      root.right = digui(root.left);
-      if (root.right) {
-        root.right.right = digui(right)
-
-      }
-      root.left = null
-      return root
-  }
-  digui(root)
+    let result = []
+    let digui = (root) =>  {
+        if (root === null) {
+            return null;
+        }
+        let right = digui(root.right);
+        let left = digui(root.left);
+        if (left) {
+          root.right = left;
+          root.left = null
+          let copy = root;
+          while (root.right) {
+              copy =copy.right;
+          }
+          copy.right = right
+        } else {
+        }
+        return root
+    }
+    digui(root)
   console.log(root)
   
 };
