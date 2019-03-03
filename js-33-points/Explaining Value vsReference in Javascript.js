@@ -16,7 +16,13 @@ console.log(JSON.stringify(personObj1)); // -> ?
 console.log(JSON.stringify(personObj2)); // -> ?
 
 a = [1,2];
-a.forEach(element => { // foreach map filter 中等element都是 新的对象
-  element = 1;
+a.forEach((element,index) => {  // foreach map filter 中等element都是 新的对象
+  element= 1;
 });
 console.log(a)
+// a = [{"b":1}];
+// a.forEach((element,index) => {  // foreach map filter 中等element都是 新的对象
+//   element.b =2
+//   // a[index]= 1;
+// });
+// console.log(a)
