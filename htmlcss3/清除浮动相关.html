@@ -40,11 +40,53 @@
 </html> -->
 
 
-<html>
+<!-- <html>
   <body>
     <div class="topDiv clearfix">
         <div class="textDiv">...</div>
         <div class="floatDiv">利用伪元素（clearfix）</div>
+    </div>
+    <div class="bottomDiv">...</div>
+
+  </body>
+  <style>
+    .topDiv {
+    width: 500px;
+    border: 2px solid black;
+}
+.floatDiv {
+    width: 120px;
+    height: 100px;
+    border: 2px dotted red;
+    color: red;
+    margin: 4px;
+    float: left;
+}
+.bottomDiv {
+    width: 500px;
+    height: 100px;
+    margin: 5px 0;
+    border: 2px dotted black;
+}
+.textDiv {
+    color: blue;
+    border: 2px solid blue;
+}
+.clearfix:after {
+    content: '.';
+    height: 100px;
+    display: block;
+    clear: both;
+}
+  </style>
+
+</html> -->
+
+<html>
+  <body>
+    <div class="topDiv clearfix">
+        <div class="textDiv">...</div>
+        <div class="floatDiv">利用overflow清除浮动</div>
     </div>
     <div class="bottomDiv">...</div>
 
