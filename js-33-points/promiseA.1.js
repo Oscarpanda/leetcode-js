@@ -73,37 +73,62 @@ class PromiseA {
         })
     }
 }
-// let promise1 = new PromiseA((res, rej) => {
-//     setTimeout(() => {
-//         res("res")
-//     }, 3000)
-//     console.log(1);
-// })
-// let promise2 = new PromiseA((res, rej) => {
-//     setTimeout(() => {
-//         res("res")
-//     }, 4000)
-//     console.log(1);
-// })
-// PromiseA.all([promise1, promise2]).then((arr) => {
-//     console.log(arr)
-// })
+let b = 0;
+let loadQueue = [1000, 2000, 3000, 5000];
+promise1Fn = function(time) {
+    return  new PromiseA((res, rej) => {
+        setTimeout(() => {
+            res(time)
+        }, time)
+        console.log(1);
+    }).then((data) => {
+        console.log(data)
+    })
 
-let promise = new PromiseA((res, rej) => {
+}
+let promise1 = new PromiseA((res, rej) => {
     setTimeout(() => {
         res("res")
     }, 3000)
     console.log(1);
 }).then((data) => {
-    console.log("data", data);
-    return "then1"
-}).then((data3) => {
-    console.log("data3", data3)
-    // return new PromiseA((res,rej) => {
-    //     setTimeout(() => {
-    //         res("resx")
-    //     }, 3000)
-    // })
-}).then((data) => {
-    console.log("fin")
-});
+    console.log(data)
+})
+// loadQueue.push(promise1)
+let promise2 = new PromiseA((res, rej) => {
+    setTimeout(() => {
+        res("res")
+    }, 4000)
+    console.log(2);
+}).then((datrar) => {
+    console.log("4")
+})
+// loadQueue.push(promise2)
+// PromiseA.all([promise1, promise2]).then((arr) => {
+//     console.log(arr)
+// })
+loadQueue.reduce(( chain, load) => {
+          return chain.then(() => promise1Fn(load));
+}, Promise.resolve())
+
+// let promise = new PromiseA((res, rej) => {
+//     setTimeout(() => {
+//         b++
+//         res("res")
+//     }, 3000)
+//     console.log(1);
+// }).then((data) => {
+//     b++
+//     console.log("data",b);
+//     return "then1"
+// }).then((data3) => {
+//     b++
+//     console.log("data3", b)
+//     // return new PromiseA((res,rej) => {
+//     //     setTimeout(() => {
+//     //         res("resx")
+//     //     }, 3000)
+//     // })
+// }).then((data) => {
+//     console.log("fin")
+// });
