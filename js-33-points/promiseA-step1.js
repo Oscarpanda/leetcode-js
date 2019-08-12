@@ -19,7 +19,6 @@ class PromiseA {
             this.data = data
             this.status = FULFILLED;
             if (this.resCallback) {
-
                 this.resCallback(data)
             }
         }
