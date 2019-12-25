@@ -8,11 +8,9 @@
  * @return {number}
  */
 var trailingZeroes = function (n) {
-  let count = 0;
-  while (n >=5) {
-    count += Math.floor(n / 5);
-    n = n / 5
-  }
-  return count
+  let z10 = Math.floor(n / 10);
+  let z5 = Math.floor(n % 10 / 5)
+  return z10 * 2 + z5
 };
 trailingZeroes(30)
+
