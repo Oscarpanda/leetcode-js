@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const str = '\u00bd + \u00bc = \u00be';
 
 console.log(`${str}: ${str.length} 个字符, ` +
@@ -9,7 +8,3 @@ console.log(buf, Buffer.alloc(10, 1), Buffer.from("best"));
 // for (const b of buf3) {
 //   console.log(b);
 // }
-=======
-const buf6 = Buffer.from('test', 'latin1');
-console.log(buf6, Buffer.poolSize);
->>>>>>> 31187622db965fd294faef189723a280d1421a0e
