@@ -1,3 +1,4 @@
+
 const PENDING = "pending";
 const FULFILLED = "success";
 const REJECTED = "fail"
@@ -19,7 +20,7 @@ class PromiseA {
         } catch (error) {
             this.reg(error)
         };
-            
+
     }
     res(data){
         let run = () => {
@@ -95,15 +96,15 @@ class PromiseA {
                 }
             }
             switch(this.status) {
-                case PENDING: 
+                case PENDING:
                 this.REJECTEDQuene.push(fail)
                 this.FULFILLEDQuene.push(success)
                 break
-                case FULFILLED: 
+                case FULFILLED:
                 success(this.data)
                 break
             }
-            
+
 
         })
     }
@@ -127,26 +128,40 @@ class PromiseA {
         })
     }
 }
-let promise1 = new PromiseA((res, rej) => {
-    setTimeout(() => {
-        res("res")
-    }, 3000)
-    console.log(1);
-})
-let promise2 = new PromiseA((res, rej) => {
-    setTimeout(() => {
-        res("res")
-    }, 4000)
-    console.log(1);
-})
-PromiseA.all([promise1, promise2]).then((arr) => {
-    console.log(arr)
-})
-
-// let promise = new PromiseA((res, rej) => {
+// let promise1 = new PromiseA((res, rej) => {
 //     setTimeout(() => {
 //         res("res")
 //     }, 3000)
+//     console.log(1);
+// })
+// let promise2 = new PromiseA((res, rej) => {
+//     setTimeout(() => {
+//         res("res")
+//     }, 4000)
+//     console.log(1);
+// })
+// PromiseA.all([promise1, promise2]).then((arr) => {
+//     console.log(arr)
+// })
+
+let promise1 = new Promise((res, rej) => {
+        setTimeout(() => {
+          res("res2")
+        },5000);
+    console.log(1);
+})
+let a = async() => {
+ let b = await promise1
+ console.log(b)
+}
+a()
+// setTimeout(async() => {
+//   let a = await promise1
+//   console.log(a)
+// }, 2000);
+// let promise = new PromiseA((res, rej) => {
+//         res("res")
+//         res("res")
 //     console.log(1);
 // }).then((data) => {
 //     console.log("data", data);
